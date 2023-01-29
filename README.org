@@ -1,5 +1,5 @@
 * Overview
-A simple Reticulum packet viewer that woks via the [[https://markqvist.github.io/Reticulum/manual/interfaces.html#pipe-interface][Pipe Interface]]. Build on top
+A simple Reticulum packet viewer that works via the [[https://markqvist.github.io/Reticulum/manual/interfaces.html#pipe-interface][Pipe Interface]]. Build on top
 of [[https://crates.io/crates/reticulum-packet-rs][reticulum-packet-rs]]. This is a proof-of-concept.
 
 * Usage
