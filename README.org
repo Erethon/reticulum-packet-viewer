@@ -1,0 +1,19 @@
+* Overview
+A simple Reticulum packet viewer that woks via the [[https://markqvist.github.io/Reticulum/manual/interfaces.html#pipe-interface][Pipe Interface]]. Build on top
+of [[https://crates.io/crates/reticulum-packet-rs][reticulum-packet-rs]]. This is a proof-of-concept.
+
+* Usage
+Add a =PipeInterace= in your =rnsd= configuration as such:
+
+#+BEGIN_SRC
+[[Pipe Interface]]
+    type = PipeInterface
+    interface_enabled = True
+
+      # External command to execute
+    command = /path/to/reticulum-packet-viewer -v
+#+END_SRC
+
+By default this will output in stderr some human readable information about the received
+packets. If the =-v/--verbose= flag is passed, the =data= part of the packet
+will also be printed as a list of 2 hex characters.
