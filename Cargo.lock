@@ -88,6 +88,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "hex"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
+
+[[package]]
 name = "io-lifetimes"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -178,14 +184,13 @@ dependencies = [
 [[package]]
 name = "reticulum-packet-rs"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4d3da330749a267c352f6cd46e1de412588ccdeffc07857c87e4e56cc700daa2"
 
 [[package]]
 name = "reticulum-packet-viewer"
 version = "0.1.0"
 dependencies = [
  "clap",
+ "hex",
  "reticulum-packet-rs",
 ]
 
