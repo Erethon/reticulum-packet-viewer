@@ -20,3 +20,17 @@ announcements.
 The =--filter= flag followed by a Reticulum address, will make it so that only
 packets that match the provided address in one of the two address fields of the
 header will be displayed.
+
+* Output
+This is an example output when requesting the Unsigned.io node on Reticulum:
+#+BEGIN_SRC
+Hop Address: 0D6894447781844E3392C845E843886A, Address: EC58B0E430CD9628907383954FEEA068, Hops: 0, Header Type: 2, Context: None, Destination Type: Single, Propagation Type: Transport, Packet Type: Linkrequest
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 1, Header Type: 1, Context: Lrproof, Destination Type: Single, Propagation Type: Broadcast, Packet Type: Proof
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 0, Header Type: 1, Context: Lrrtt, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Data
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 0, Header Type: 1, Context: Request, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Data
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 1, Header Type: 1, Context: ResourceAdv, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Data
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 0, Header Type: 1, Context: ResourceReq, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Data
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 1, Header Type: 1, Context: Resource, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Data
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 1, Header Type: 1, Context: Resource, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Data
+Address: 73339B600B581C61F558C1FEBD2DE619, Hops: 0, Header Type: 1, Context: ResourcePrf, Destination Type: Link, Propagation Type: Broadcast, Packet Type: Proof
+#+END_SRC
