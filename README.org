@@ -1,19 +1,22 @@
 * Overview
-A simple Reticulum packet viewer that works via the [[https://markqvist.github.io/Reticulum/manual/interfaces.html#pipe-interface][Pipe Interface]]. Build on top
-of [[https://crates.io/crates/reticulum-packet-rs][reticulum-packet-rs]]. This is a proof-of-concept.
+A simple Reticulum packet viewer that works via capturing the output of `tshark`. Build on top
+of [[https://crates.io/crates/reticulum-packet-rs][reticulum-packet-rs]]. This
+is a proof-of-concept and not properly versioned, as such it requires the
+latest git version of reticulum-packet-rs most of the time to work.
 
 * Usage
-Add a =PipeInterace= in your =rnsd= configuration as such:
-
+Assuming we want to caputer all packets from/to the Frankfurt testnet node:
 #+BEGIN_SRC
-[[Pipe Interface]]
-    type = PipeInterface
-    interface_enabled = True
-
-      # External command to execute
-    command = /path/to/reticulum-packet-viewer -v
+sudo unbuffer tshark -T fields -e data host frankfurt.connect.reticulum.network | ~/reticulum-packet-viewer
 #+END_SRC
 
-By default this will output in stderr some human readable information about the received
-packets. If the =-v/--verbose= flag is passed, the =data= part of the packet
-will also be printed as a list of 2 hex characters.
+By default, it will output in stderr some human readable information about the
+received packets. If the =-v/--verbose= flag is passed, the =data= part of the
+packet will also be printed as a list of 2 hex characters.
+
+The =--announce= flag will also output the app data part of any received
+announcements.
+
+The =--filter= flag followed by a Reticulum address, will make it so that only
+packets that match the provided address in one of the two address fields of the
+header will be displayed.
