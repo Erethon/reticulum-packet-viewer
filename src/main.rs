@@ -5,8 +5,9 @@ use std::io::{self, BufRead, BufReader};
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
 struct Cli {
-    #[arg(long, short)]
-    verbose: bool,
+    /// Also display Data section of the packet, truncated to first v bytes.
+    #[arg(long, short, default_value_t = 0)]
+    verbose: usize,
 
     #[arg(long, default_value_t = 0)]
     ifac_size: usize,
@@ -14,9 +15,11 @@ struct Cli {
     #[arg(long, default_value = "")]
     ifac: String,
 
+    /// Display the app data part of received announces.
     #[arg(long)]
     announce: bool,
 
+    /// Only show messages that match the provided address on the packet header.
     #[arg(long, short, default_value = "")]
     filter: String,
 }
@@ -26,7 +29,8 @@ fn main() -> io::Result<()> {
     let stdin = io::stdin();
     let mut addr_filter: [u8; 16] = [0; 16];
     if !cli.filter.is_empty() {
-        hex::decode_to_slice(cli.filter, &mut addr_filter).expect("Invalid Reticulum address. Expected 16 bytes as hex characters.");
+        hex::decode_to_slice(cli.filter, &mut addr_filter)
+            .expect("Invalid Reticulum address. Expected 16 bytes as hex characters.");
     }
     for packet in BufReader::new(stdin).lines() {
         let raw_packet = packet.unwrap();
